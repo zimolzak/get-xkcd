@@ -10,15 +10,13 @@ def get_comic_by_num(n):
     json_data = str(response.read(), encoding='utf-8')
     return json.loads(json_data)
 
-#### main ####
-
 print("comic_num,panels,words")
 
-comic_to_get = 615
-python_obj = get_comic_by_num(comic_to_get)
-n = python_obj['num']
-assert comic_to_get == n
-T = python_obj['transcript']
-panels = len(T.split('\n\n')) - 1
-words = len(T.split())
-print(str(n) + ',' + str(panels) + ',' + str(words))
+for comic_to_get in range(614, 617):
+    python_obj = get_comic_by_num(comic_to_get)
+    n = python_obj['num']
+    assert comic_to_get == n
+    T = python_obj['transcript']
+    panels = len(T.split('\n\n')) - 1
+    words = len(T.split())
+    print(str(n) + ',' + str(panels) + ',' + str(words))
