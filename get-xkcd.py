@@ -30,6 +30,8 @@ def get_comic_by_num(n):
 print("comic_num,panels,words")
 
 for comic_to_get in range(start, end):
+    if comic_to_get == 404:
+        next
     python_obj = get_comic_by_num(comic_to_get)
     n = python_obj['num']
     assert comic_to_get == n
