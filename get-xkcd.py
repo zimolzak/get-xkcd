@@ -13,7 +13,6 @@ end = 617
 # But 1677 really contains transcript from 1674.
 # someone noticed this: http://forums.xkcd.com/viewtopic.php?t=113433
 
-print(argv)
 if len(argv) == 3:
     s = int(argv[1])
     e = int(argv[2])
