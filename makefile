@@ -10,3 +10,7 @@ clean :
 test :
 	python3 get-xkcd.py > out.txt
 	Rscript plot.R
+
+easy : full.txt plot.R
+	cp full.txt out.txt
+	Rscript plot.R
