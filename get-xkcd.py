@@ -1,8 +1,25 @@
 import json
 import urllib.request
 import ssl
+from sys import argv
 
 unverified = ssl._create_unverified_context()
+
+start = 614
+end = 617
+
+# last comic with a reliable transcript is roughly 1608?
+# Last with any might be 1677.
+# But 1677 really contains transcript from 1674.
+# someone noticed this: http://forums.xkcd.com/viewtopic.php?t=113433
+
+print(argv)
+if len(argv) == 3:
+    s = int(argv[1])
+    e = int(argv[2])
+    assert s < e
+    start = s
+    end = e + 1
 
 def get_comic_by_num(n):
     url = 'https://xkcd.com/' + str(n) + '/info.0.json'
@@ -12,7 +29,7 @@ def get_comic_by_num(n):
 
 print("comic_num,panels,words")
 
-for comic_to_get in range(614, 617):
+for comic_to_get in range(start, end):
     python_obj = get_comic_by_num(comic_to_get)
     n = python_obj['num']
     assert comic_to_get == n
